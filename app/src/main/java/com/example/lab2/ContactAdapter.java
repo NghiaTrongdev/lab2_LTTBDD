@@ -1,6 +1,9 @@
 package com.example.lab2;
 
 import android.annotation.SuppressLint;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -63,15 +66,19 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactH
         private void setData(Contact contact){
                  binding.textViewName.setText(contact.getName());
                  binding.textViewPhone.setText(contact.getPhoneNumber());
+
+                 byte[] bytes = Base64.decode(contact.image,Base64.DEFAULT);
+                 Bitmap bitmap = BitmapFactory.decodeByteArray(bytes,0,bytes.length);
+                 binding.imageProfile.setImageBitmap(bitmap);
         }
-        private void setListener(){
-             binding.checkbox.setOnCheckedChangeListener((buttonView,isChecked) -> {
-                 if(onItemCheckedListener !=null){
-                    onItemCheckedListener.onItemChecked(isChecked);
-                    notifyDataSetChanged();
-                 }
-             });
-        }
+//        private void setListener(){
+//             binding.checkbox.setOnCheckedChangeListener((buttonView,isChecked) -> {
+//                 if(onItemCheckedListener !=null){
+//                    onItemCheckedListener.onItemChecked(isChecked);
+//                    notifyDataSetChanged();
+//                 }
+//             });
+//        }
     }
 
 }

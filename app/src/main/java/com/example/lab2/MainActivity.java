@@ -63,6 +63,8 @@ public class MainActivity extends AppCompatActivity {
            if (data !=null && data.hasExtra("newContact")){
                Contact newContact = (Contact) data.getSerializableExtra("newContact");
                lst.add(newContact);
+
+
                 Toast toast =  Toast.makeText(getApplicationContext(),"success",Toast.LENGTH_SHORT);
                toast.show();
                contactAdapter.notifyDataSetChanged();
@@ -71,11 +73,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
     private void setData(){
-//        lst.add(new Contact(1,"nghia1","123456",true));
-//        lst.add(new Contact(2,"nghia","123456",false));
-//        lst.add(new Contact(3,"nghia","123456",false));
-//        lst.add(new Contact(4,"nghia","123456",false));
-//        lst.add(new Contact(5,"nghia","123456",false));
 
     }
     private void checkData(){
